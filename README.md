@@ -99,21 +99,6 @@ make test  # Pretty test output
 go test -v ./test/...
 ```
 
----
-
-## 🎉 Pretty Test Output Example
-
-```
-==============================
-🚀 Running all tests for go_IMDB-cli
-==============================
-=== RUN   TestAddFavoriteValid
-✅ --- PASS: TestAddFavoriteValid (0.45s)
-=== RUN   TestSearchMovie
-✅ --- PASS: TestSearchMovie (0.33s)
-...
-🎉 All tests passed!
-```
 
 ---
 
