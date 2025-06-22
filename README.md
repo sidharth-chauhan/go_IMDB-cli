@@ -145,6 +145,9 @@ go test -v ./test/...
 
 > ⚠️ Note: Tests require internet access and use `data/favorites.db`.
 
+[![codecov](https://codecov.io/gh/sidharth-chauhan/go_IMDB-cli/branch/main/graph/badge.svg)](https://codecov.io/gh/sidharth-chauhan/go_IMDB-cli)
+
+
 ---
 
 ## 📄 License
