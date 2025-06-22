@@ -33,7 +33,8 @@ jobs:
         run: go test ./test/...
 
       - name: Run tests
-        run: go test -coverprofile=coverage.txt
+        run: go test -coverprofile=coverage.out ./...
+
       
       - name: Upload test results to Codecov
         if: ${{ !cancelled() }}
