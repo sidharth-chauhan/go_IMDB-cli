@@ -31,6 +31,9 @@ jobs:
 
       - name: ✅ Run Go tests
         run: go test ./test/...
+
+      - name: Run tests
+        run: go test -coverprofile=coverage.txt
       
       - name: Upload test results to Codecov
         if: ${{ !cancelled() }}
