@@ -36,11 +36,15 @@ jobs:
         run: go test -coverprofile=coverage.out ./...
 
       
-      - name: Upload test results to Codecov
-        if: ${{ !cancelled() }}
-        uses: codecov/test-results-action@v1
+      - name: 🧪 Run tests with coverage
+        run: go test -coverprofile=coverage.out ./...
+
+      - name: 📤 Upload to Codecov
+        uses: codecov/codecov-action@v3
         with:
-          token: ${{ secrets.CODECOV_TOKEN }}
+          files: coverage.out
+          fail_ci_if_error: true
+
 
 
       - name: 🧹 Shut down Docker
