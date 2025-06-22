@@ -26,11 +26,36 @@
 
 ## 🚀 Quick Start
 
+### ⚙️ Option 1: Run as Binary (Recommended)
+
 ```bash
-git clone https://github.com/sidharth-chauhan/imdb-cli.git
-cd imdb-cli
+git clone https://github.com/sidharth-chauhan/go_IMDB-cli.git
+cd go_IMDB-cli
 go build -o imdb
 ./imdb --help
+```
+
+### 🐳 Option 2: Run with Docker Compose
+
+```bash
+# Build and start the CLI container
+docker-compose up
+```
+
+Then in a separate terminal window, run commands like:
+
+```bash
+docker-compose run imdb search --title "Inception"
+docker-compose run imdb add --id tt1375666
+docker-compose run imdb list
+docker-compose run imdb delete --id tt1375666
+docker-compose run imdb compare --id1 tt0111161 --id2 tt0068646
+```
+
+To stop and clean up:
+
+```bash
+docker-compose down
 ```
 
 ---
@@ -46,6 +71,8 @@ go build -o imdb
 ---
 
 ## 📝 Usage Examples
+
+### 🔧 Binary
 
 ```bash
 # 🔍 Search for a movie
@@ -65,6 +92,28 @@ go build -o imdb
 
 # ⚖️ Compare two movies by IMDb rating
 ./imdb compare --id1 tt0111161 --id2 tt0068646
+```
+
+### 🐳 Docker Compose
+
+```bash
+# 🔍 Search for a movie
+docker-compose run imdb search --title "Inception"
+
+# 📖 Get full movie details
+docker-compose run imdb detail --id tt1375666
+
+# ➕ Add a movie to favorites
+docker-compose run imdb add --id tt1375666
+
+# ⭐ List all favorite movies
+docker-compose run imdb list
+
+# 🗑️ Delete a favorite
+docker-compose run imdb delete --id tt1375666
+
+# ⚖️ Compare two movies by IMDb rating
+docker-compose run imdb compare --id1 tt0111161 --id2 tt0068646
 ```
 
 ---
@@ -92,7 +141,9 @@ go_IMDB-cli/
 ├── utils/       # Functions for API calls and helpers
 ├── test/        # Test cases (WIP)
 ├── main.go      # Entry point
-└── Makefile     # For running tests with pretty output
+├── Dockerfile   # Build CLI inside container
+├── docker-compose.yml # Compose file for volume + reuse
+└── Makefile     # Pretty test output
 ```
 
 ---
@@ -100,16 +151,13 @@ go_IMDB-cli/
 ## 🧪 Running Tests
 
 ```bash
-# Run test cases with detailed output
 go test -v ./test/...
 ```
 
-> Note: Tests require internet access for OMDb API and use a local SQLite test database (`data/favorites.db`).
+> ⚠️ Note: Tests require internet access and use `data/favorites.db`.
 
 ---
 
 ## 📄 License
 
 This project is licensed under the [MIT License](LICENSE).
-
----

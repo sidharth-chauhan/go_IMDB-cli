@@ -1,0 +1,10 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  imdb:
+    build: .
+    container_name: imdb-cli
+    volumes:
+      - ./data:/app/data
+    entrypoint: ./imdb
