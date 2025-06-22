@@ -41,17 +41,6 @@ go build -o imdb
 # Build and start the CLI container
 docker-compose up
 ```
-
-Then in a separate terminal window, run commands like:
-
-```bash
-docker-compose run imdb search --title "Inception"
-docker-compose run imdb add --id tt1375666
-docker-compose run imdb list
-docker-compose run imdb delete --id tt1375666
-docker-compose run imdb compare --id1 tt0111161 --id2 tt0068646
-```
-
 To stop and clean up:
 
 ```bash
